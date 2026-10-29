@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: smarterp-mvp
+    runtime: node
+    plan: free
+    buildCommand: ""
+    startCommand: npm start
+    healthCheckPath: /api/health
+

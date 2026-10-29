@@ -3,7 +3,18 @@ services:
     name: smarterp-mvp
     runtime: node
     plan: free
-    buildCommand: ""
+    buildCommand: npm install
     startCommand: npm start
     healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: smarterp-db
+          property: connectionString
+
+databases:
+  - name: smarterp-db
+    plan: free
+    databaseName: smarterp
+    user: smarterp
 
